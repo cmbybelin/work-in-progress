@@ -1,0 +1,72 @@
+// Colors:
+$white: white;
+$creme: rgb(244, 238, 234);
+$nude: rgb(288, 217, 212);
+$grey: rgb(183, 183, 183);
+$cloud-grey: rgb(230, 231, 234);
+$black: black;
+
+// Metrics:
+$golden-ratio: 1.618;
+$golden-ratio-p-2: 100% / $golden-ratio;
+$golden-ratio-p-1: 100% - $golden-ratio-p-2;
+$golden-ratio-vw-2: 100vw / $golden-ratio;
+$golden-ratio-vw-1: 100vw - $golden-ratio-vw-2;
+$screen-wide: 960px;
+$screen-medium: 600px;
+
+// Distance:
+$default-padding: 8px;
+
+// Fonts:
+$serif: 'Cinzel', serif;
+$sans-serif: 'Nunito Sans', Arial, sans-serif;
+$default-font-size: 16px;
+$mobile-menu-font-size: 34px;
+
+@import url(https://fonts.googleapis.com/css?family=Cinzel|Nunito+Sans:200,300);
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  font-size: $default-font-size;
+  font-family: $sans-serif;
+  line-height: $default-font-size * 1.36;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: $serif;
+  font-size: 52px;
+  font-weight: 100;
+  line-height: normal;
+}
+
+h2 {
+  font-family: $serif;
+  font-size: 40px;
+  font-weight: 100;
+  line-height: normal;
+}
+
+h3 {
+  font-family: $serif;
+  font-size: 28px;
+  font-weight: 100;
+  line-height: normal;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* MULTI LINGUAL */
+.lang-nl *[lang='en'],
+.lang-en *[lang='nl'] {
+  display: none;
+}

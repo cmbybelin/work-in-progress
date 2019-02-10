@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -5,58 +7,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-  <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Belinda Terrisse portrait photography - Photography. The art to capture the right moment, to transfer a feeling and intrigue people.</title>
-<meta property="og:title" content="Belinda Terrisse portrait photography" />
-<meta name="description" content="Photography. The art to capture the right moment, to transfer a feeling and intrigue people." />
-<meta property="og:description" content="Photography. The art to capture the right moment, to transfer a feeling and intrigue people." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Belinda Terrisse portrait photography" />
-<script type="application/ld+json">
-{"@context": "http://schema.org",
-"@type": "WebSite",
-"name": "Belinda Terrisse portrait photography",
-"headline": "Belinda Terrisse portrait photography",
-"description": "Photography. The art to capture the right moment, to transfer a feeling and intrigue people.",
-"publisher": {"@type": "Organization",
-"logo": {"@type": "ImageObject",
-"url": "http://localhost:4000/style/images/sig.png"}},
-"sameAs": ["https://www.facebook.com/belinda.terrisse","https://www.instagram.com/belindaterrisse","https://www.pinterest.com/belindaterrisse"],
-"url": "http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
-
+  {% seo %}
 
   <meta property="og:type" name="og:type" content="website">
-  <meta property="og:image" name="og:image" content="http://localhost:4000/style/images/sig.png">
+  <meta property="og:image" name="og:image" content="{{ site.url }}/style/images/sig.png">
   <meta property="og:image:width" name="og:image:width" content="200">
   <meta property="og:image:height" name="og:image:height" content="200">
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="/style/redesign.css">
-  <link rel="stylesheet" href="/style/dialog.css">
+  <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<section id="home">
+<section id="splash">
+  <img src="images/friemeltje.png" alt=""/>
+  <h1>ONLY BRIDAL</h1>
+  <h3>wedding photography</h3>
 </section>
-<section id="about">
- <div lang="nl">
 
-    <div class="around-me"><img src="frontpage/belin.jpg" class="me" alt="Dit ben ik" /></div>
+<section id="bio">
+
+    <div class="around-me"><img src="images/belinda.jpg" class="me" alt="Dit ben ik" /></div>
     <div class="about-info">
 
-      <p>Fotografie. De kunst om het juiste moment vast te leggen, een gevoel over te brengen en mensen te intrigreren.</p>
-
-      <p>Mijn naam is Belinda Molenaar-Terrisse, woonachtig in Hoogkarspel, Noord-Holland.
-Van kinds af aan ben ik gefascineerd door fotografie. Door middel van workshops heb ik mezelf ontwikkeld.
-Gedreven door passie probeer ik jullie te inspireren.</p>
-
-      <p>Mijn interesses gaan uit naar new born-, portret- en high fashionfotografie.<br />
-Beelden met een verhaal die voor eeuwig zijn vastgelegd.</p>
-
-      <p>Enjoy!</p>
+      <p>Ik ben Belinda Terrisse, woon in Hoogkarspel met mijn man en drie
+        kinderen. Fotografie is al jaren mijn passie. Mijn droom is
+        uitgekomen: van mijn passie mijn werk maken.</p>
+      <p>Ik zou graag jullie droom uit willen laten komen. Jullie
+        droombruiloft fotograferen. Een uniek verhaal vastleggen.
+        Jullie verhaal! Het zou een eer zijn om dit voor jullie te
+        mogen doen.</p>
+      <p>Puur, Gevoelig, Romantisch, With a touch of Fashion.</p>
+      <p>Als Fine Art fotografe maak ik veel gebruik van natuurlijk
+        licht. Ik heb oog voor detail en ik wordt super enthousiast van een
+        prachtige omgeving en styling.</p>
+      <p>Voor jullie de onvergetelijke en intense momenten vastleggen is mijn
+        doel. Ben je benieuwd wat ik allemaal voor jullie kan bieden? Neem
+        dan vrijblijvend contact met me op.</p>
+      <p>Liefs Belin</p>
     </div>
   </div>
 
@@ -94,7 +83,7 @@ Beelden met een verhaal die voor eeuwig zijn vastgelegd.</p>
 
 
 </div><form class="contact-info" action="https://getsimpleform.com/messages?form_api_token=f4f995dca59e3f566b7d974bf51b46f4" method="post">
-  <input type="hidden" name="redirect_to" value="http://localhost:4000/index.html#thanks" />
+  <input type="hidden" name="redirect_to" value="{{ site.url }}/index.html#thanks" />
 
   <label for="f_name">Naam:</label>
   <input id="f_name" type="text" name="name" required="" placeholder="Je naam" />
