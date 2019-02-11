@@ -65,6 +65,10 @@ img {
   max-width: 100%;
 }
 
+a, a:active, a:hover, a:visited {
+  color: $black;
+}
+
 /* MULTI LINGUAL */
 .lang-nl *[lang='en'],
 .lang-en *[lang='nl'] {
