@@ -1,0 +1,14 @@
+#collage {
+  background-image: url(images/kusinauto.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  text-align: center;
+  height: 100vh;
+  max-height: 667px;
+  color: #f3f1ee;
+
+  @media(min-width: 1024px) {
+    max-height: 66vw;
+  }
+}
