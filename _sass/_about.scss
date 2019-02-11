@@ -1,0 +1,27 @@
+#about {
+
+  img, .about-info {
+    padding: 32px;
+    box-sizing: border-box;
+  }
+
+  @media(min-width: 1024px) {
+    .about-me {
+      // display: inline-block;
+      width: 50%;
+      float: left;
+    }
+    img {
+      max-width: 100%;
+      padding: 120px;
+      box-sizing: border-box;
+    }
+    .about-info {
+      display: inline-block;
+      width: 50%;
+      padding-top: 60px;
+      padding-right: 120px;
+      box-sizing: border-box;
+    }
+  }
+}

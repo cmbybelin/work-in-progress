@@ -24,13 +24,11 @@
   <img src="images/friemeltje.png" alt=""/>
   <h1>ONLY BRIDAL</h1>
   <h3>wedding photography</h3>
-</section>
-
-<section id="bio">
-
-    <div class="around-me"><img src="images/belinda.jpg" class="me" alt="Dit ben ik" /></div>
-    <div class="about-info">
-
+</section><!--
+--><section id="about"><!--
+--><div class="about-me"><img src="style/images/belinda.jpg" class="me" alt="Dit ben ik" /></div><!--
+--><div class="about-info">
+      <h1>Over mij</h1>
       <p>Ik ben Belinda Terrisse, woon in Hoogkarspel met mijn man en drie
         kinderen. Fotografie is al jaren mijn passie. Mijn droom is
         uitgekomen: van mijn passie mijn werk maken.</p>
@@ -47,57 +45,40 @@
         dan vrijblijvend contact met me op.</p>
       <p>Liefs Belin</p>
     </div>
+  </div><!--
+--></section><!--
+
+
+--><section id="contact">
+  <div class="contact-info">
+    <h1>Let's talk</h1>
+
+    <p class="vcard">
+    <span class="fn org">Belinda Terrisse portrait photography</span><br />
+    <i class="fa fa-phone"></i>: <a href="tel:+316-1375-9292" class="tel">+31 (0)6-1375 9292</a><br />
+    <i class="fa fa-envelope"></i>: <a href="mailto:belindaterrisse@gmail.com" class="email">belindaterrisse@gmail.com</a>
+    <div class="socialmedia">
+      <a href="https://www.facebook.com/belinda.terrisse" class="facebook" title="Facebook"><i class="fa fa-facebook-square"></i></a>
+      <a href="https://www.instagram.com/belindaterrisse" class="instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com/belindaterrisse" class="pinterest" title="Pinterest"><i class="fa fa-pinterest-square"></i></a>
+    </div>
+    </p>
   </div>
 
-<div class="clearfix"></div>
+  <form class="contact-info" action="https://getsimpleform.com/messages?form_api_token=f4f995dca59e3f566b7d974bf51b46f4" method="post">
+    <input type="hidden" name="redirect_to" value="{{ site.url }}/index.html#thanks" />
 
+    <label for="f_name">Naam:</label>
+    <input id="f_name" type="text" name="name" required="" placeholder="Je naam" />
+    <label for="f_email">E-mail:</label>
+    <input id="f_email" type="email" name="email" required="" placeholder="Je e-mail adres" />
+    <label for="f_message">Bericht:</label>
+    <textarea id="f_message" name="message" rows="12" required="" placeholder="Type je bericht hier"></textarea>
 
+    <button class="button" type="submit">Verzend</button>
+  </form>
 </section>
-<section id="portfolio">
- <!--
- --><a class="photo" style="background-image: url(frontpage/newborn1.jpg); background-position: right top" href="/portfolio/newborn.html"><span>&mdash; New born &mdash;</span></a><!--
- --><a class="photo" style="background-image: url(frontpage/newborn2.jpg); background-position: right center" href="/portfolio/newborn.html"><span>&mdash; New born &mdash;</span></a><!--
- --><a class="photo" style="background-image: url(frontpage/maternity.jpg)" href="/portfolio/maternity.html"><span>&mdash; Maternity &mdash;</span></a><!--
- --><a class="photo" style="background-image: url(frontpage/wedding.jpg)" href="/portfolio/wedding.html"><span>&mdash; Wedding &mdash;</span></a><!--
- --><a class="photo" style="background-image: url(frontpage/portrait.jpg); background-position: right top" href="/portfolio/portrait.html"><span>&mdash; Portrait &mdash;</span></a><!--
- --><a class="photo" style="background-image: url(/frontpage/log.jpg)" href="/blog.html"><span>&mdash; Blog &mdash;</span></a><!--
- --><div class="clearfix"></div>
 
-</section>
-<section id="contact">
- <div lang="nl"><!--
-
---><div class="contact-info">
-<p>Mocht je meer willen weten, laat dan een berichtje achter:</p>
-
-<p class="vcard">
- <span class="fn org">Belinda Terrisse portrait photography</span><br />
- <i class="fa fa-phone"></i>: <a href="tel:+316-1375-9292" class="tel">+31 (0)6-1375 9292</a><br />
- <i class="fa fa-envelope"></i>: <a href="mailto:belindaterrisse@gmail.com" class="email">belindaterrisse@gmail.com</a>
- <div class="socialmedia">
-  <a href="https://www.facebook.com/belinda.terrisse" class="facebook" title="Facebook"><i class="fa fa-facebook-square"></i></a>
-  <a href="https://www.instagram.com/belindaterrisse" class="instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
-  <a href="https://www.pinterest.com/belindaterrisse" class="pinterest" title="Pinterest"><i class="fa fa-pinterest-square"></i></a>
- </div>
-</p>
-
-
-</div><form class="contact-info" action="https://getsimpleform.com/messages?form_api_token=f4f995dca59e3f566b7d974bf51b46f4" method="post">
-  <input type="hidden" name="redirect_to" value="{{ site.url }}/index.html#thanks" />
-
-  <label for="f_name">Naam:</label>
-  <input id="f_name" type="text" name="name" required="" placeholder="Je naam" />
-  <label for="f_email">E-mail:</label>
-  <input id="f_email" type="email" name="email" required="" placeholder="Je e-mail adres" />
-  <label for="f_message">Bericht:</label>
-  <textarea id="f_message" name="message" rows="12" required="" placeholder="Type je bericht hier"></textarea>
-
-  <button class="button" type="submit">Verzend</button>
-</form>
-
-</div>
-
-</section>
 <div class="contact-thanks" id="thanks">
  <div class="contact-thanks-dialog">
   <h3 lang="nl">Je bericht is verzonden</h3>
@@ -114,25 +95,6 @@
   </div>
  </div>
 </div>
-
-<script type="text/javascript">//<!--
-  window.addEventListener("load", function() {
-    window.addEventListener("scroll", function(e) {
-      var logo = document.getElementById('logo');
-
-      if (document.body.scrollTop > 200) {
-	logo.style.height = 0;
-	logo.style.paddingBottom = 0;
-	logo.style.opacity = 0;
-      } else {
-	logo.style.height = '100px';
-	logo.style.paddingBottom = '0.8em';
-	logo.style.opacity = 1.0;
-      }
-    });
-  });
-//--></script>
-
 
  <footer>
   Copyright &copy; 2019 Belinda Terrisse
