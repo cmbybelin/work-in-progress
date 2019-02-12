@@ -11,8 +11,12 @@
   img {
     height: 100vw;
     width: 100%;
+    max-height: 448px;
+    max-width: 448px;
     object-fit: cover;
     object-position: top;
+    display: block;
+    margin: auto;
   }
   @media(min-width: 1024px) {
 
@@ -23,6 +27,7 @@
     img {
       height: auto;
       max-width: 100%;
+      max-height: 100%;
       padding: 120px;
     }
     .about-info {
