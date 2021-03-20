@@ -1,0 +1,259 @@
+---
+layout: index
+style: page-portfolio-index
+
+rows:
+- items: 1
+  height: 62
+  cols:
+  - width: 100
+- items: 3
+  height: 100
+  cols:
+  - width: 38
+    height: 62, 38
+  - width: 62
+- items: 3
+  height: 100
+  cols:
+  - width: 62
+  - width: 38
+    height: 38, 62
+- items: 2
+  height: 62
+  cols:
+  - width: 38
+  - width: 62
+- items: 3
+  height: 62
+  cols:
+  - width: 33
+  - width: 33
+  - width: 33
+- items: 2
+  height: 62
+  cols:
+  - width: 62
+  - width: 38
+- items: 3
+  height: 100
+  cols:
+  - width: 38
+    height: 62, 38
+  - width: 62
+- items: 2
+  height: 62
+  cols:
+  - width: 38
+  - width: 62
+- items: 1
+  height: 62
+  cols:
+  - width: 100
+
+# How does this work:
+# Given a simple portfolio page. It has a property `title` (which is the
+# basename of the portfolio). There is also a folder '/:title/' (all lowercase)
+# where the images reside. We scan all static files for the files that live in
+# '/:title/' and create a list out of that, via a string.
+# Then we iterate the 'rows' variable as defined above and create sections for
+# all the images. If a row requires more items than are left in our portfolio
+# (`left`), we skip to the next entry. Hence the list ends with a layout with 2
+# and 1 item, so everything can be displayed.
+# `current` refers to the current image that has to be displayed.
+# `index_list` contains strings `basename:path`, which has to be split.
+# For a column (`cols`) the height variable will default to 100%.
+---
+
+<h1>{{ page.title | upcase }}</h1>
+
+{% capture index_str %}
+  {% assign path_prefix = "/" | append: page.title | downcase | append: "/" %}
+  {% assign first = true %}
+  {% for file in site.static_files %}
+    {% if file.path contains path_prefix %}
+      {% unless file.path contains '/thumbs/' %}
+        {% if first %}{% assign first = false %}{% else %};{% endif %}{{ file.basename }}:{{ file.path | replace:' ','%20' }}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% assign index_list = index_str | split: ';' %}
+{% assign left = index_list | size %}
+{% assign current = 0 %}
+
+{% for row in layout.rows %}
+  {% if row.items <= left %}{% unless page.skip_list contains forloop.index %}
+    <div class="row row-{{ row.height }}"
+    {% for col in row.cols %}
+      ><div class="col col-{{ col.width }}"
+      {% if col.height %}
+        {% assign col_height = col.height | split: ',' %}
+      {% else %}
+        {% assign col_height = '100' | split: ',' %}
+      {% endif %}
+      {% for height in col_height %}
+        {% assign base_path = index_list[current] %}
+        {% assign w = base_path | strip | split: ':' %}
+        ><div class="cell cell-{{ height | strip }} open-caroussel" style="background-image: url(/thumbs{{ w[1] }})" data-imgid="{{ w[0] }}"></div
+        {% assign left = left | minus: 1 %}
+        {% assign current = current | plus: 1 %}
+      {% endfor %}
+      ></div
+    {% endfor %}
+    ></div>
+  {% endunless %}{% endif %}
+{% endfor %}
+
+
+<div id="fullscreen">
+  <div class="portfolio-nav">
+    <span class="navigate previous fa fa-angle-left" aria-hidden="true"></span>
+    <span class="navigate next fa fa-angle-right" aria-hidden="true"></span>
+    <span class="navigate close" aria-hidden="true">&#10005;</span>
+  </div>
+  <div class="portfolio">
+  {% for base_path in index_list %}
+    {% assign w = base_path | strip | split: ':' %}
+    {% assign imgid = w[0] %}
+    {% assign photo = w[1] %}
+    <div id="imgid-{{ imgid }}" class="caroussel">
+      <div class="social-photo-link">
+        <a data-pin-do="buttonPin" data-pin-id="{{ site.url }}{{ photo }}" data-pin-tall="true"
+        href="https://www.pinterest.com/pin/create/button/?media={{ site.url }}{{ photo }}"></a>
+      </div>
+      <img src="" draggable="false" data-imgsrc="{{ photo }}" />
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+<script>
+    (function (document) {
+        var $container = document.querySelector('#fullscreen');
+        var $images = document.querySelectorAll('.open-caroussel');
+        var $caroussel = document.querySelectorAll('.caroussel');
+        var $next = document.querySelector('.navigate.next');
+        var $previous = document.querySelector('.navigate.previous');
+        var $close = document.querySelector('.close');
+
+        $next.addEventListener('click', selectNext);
+        $previous.addEventListener('click', selectPrevious);
+
+        for (var i = 0; i < $images.length; i++) {
+            $images[i].addEventListener('click', openCaroussel, false);
+        }
+
+        $close.addEventListener('click', closeCaroussel, false);
+
+        var startX, startY;
+
+        for (var i = 0; i < $caroussel.length; i++) {
+            $caroussel[i].addEventListener('touchstart', handleTouchStart, false);
+            $caroussel[i].addEventListener('touchmove', handleTouchMove, false);
+            $caroussel[i].addEventListener('touchend', handleTouchEnd, false);
+        }
+
+        function openCaroussel(e) {
+            $container.classList.add('open');
+            select(document.querySelector('#imgid-' + this.dataset.imgid));
+            return true;
+        }
+
+        function closeCaroussel() {
+            $container.classList.remove('open');
+            return true;
+        }
+
+        function handleTouchStart(e) {
+            // fade:
+            var selectedImg = document.querySelector('.caroussel.selected');
+            selectedImg.style.transition = 'none';
+            // next/prev:
+            startX = e.changedTouches[0].screenX;
+            startY = e.changedTouches[0].screenY;
+            return false;
+        }
+
+        function handleTouchMove(e) {
+            // fade:
+            var selectedImg = document.querySelector('.caroussel.selected');
+            var width = window.innerWidth * 1.2;
+            var height = window.innerHeight * 1.2;
+            var endX = e.changedTouches[0].screenX;
+            var endY = e.changedTouches[0].screenY;
+            selectedImg.style.opacity = Math.max(1.0 - Math.max((Math.abs(endX - startX) / width), (Math.abs(endY - startY) / height)), 0.3);
+            e.preventDefault();
+            return false;
+        }
+
+        function handleTouchEnd(e) {
+            var dWidth = window.innerWidth / 6;
+            var dHeight = window.innerHeight / 6;
+            var endX = e.changedTouches[0].screenX;
+            var endY = e.changedTouches[0].screenY;
+            if ((startX - endX > dWidth) || (startY - endY > dHeight)) {
+                selectNext();
+            } else if ((endX - startX > dWidth) || (endY - startY > dHeight)) {
+                selectPrevious();
+            }
+            return true;
+        }
+
+        function loadImg(img) {
+            var innerImg = img.querySelector('img');
+            innerImg.src = innerImg.dataset.imgsrc;
+        }
+
+        function unselect() {
+            var img = currentImage();
+            if (img) {
+                img.style.opacity = '';
+                img.style.transition = '';
+                img.classList.remove('selected');
+            }
+        }
+
+       function select(img) {
+            unselect();
+
+            loadImg(img);
+            img.classList.add('selected');
+            loadImg(nextImage());
+            loadImg(previousImage());
+        }
+
+        function selectNext() {
+            select(nextImage());
+        }
+
+        function selectPrevious() {
+            select(previousImage());
+        }
+
+        function currentImage() {
+            return document.querySelector('.caroussel.selected');
+        }
+
+        function nextImage() {
+            var selectedImg = currentImage();
+            if (selectedImg && selectedImg.nextElementSibling) {
+                return selectedImg.nextElementSibling;
+            } else {
+                return selectedImg.parentElement.firstElementChild;
+            }
+        }
+
+        function previousImage() {
+            var selectedImg = currentImage();
+            if (selectedImg && selectedImg.previousElementSibling) {
+                return selectedImg.previousElementSibling;
+            } else {
+                return selectedImg.parentElement.lastElementChild;
+            }
+        }
+
+    })(document);
+</script>
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>

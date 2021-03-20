@@ -1,4 +1,4 @@
-#collage {
+.collage {
   background-image: url(images/kusinauto.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -10,5 +10,81 @@
 
   @media(min-width: 1024px) {
     max-height: 66vw;
+  }
+}
+
+@mixin image-container {
+  display: block;
+  box-sizing: border-box;
+  background-size: cover;
+  background-clip: content-box;
+  background-position-x: 50%;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.row {
+  box-sizing: border-box;
+  width: 100%;
+}
+.row-38 {
+  height: $golden-ratio-vw-1;
+}
+.row-62 {
+  height: $golden-ratio-vw-2;
+}
+.row-100 {
+  height: 100vw;
+}
+
+.col {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+}
+.col-33 {
+  width: 33.33%;
+}
+.col-38 {
+  width: $golden-ratio-p-1;
+}
+.col-62 {
+  width: $golden-ratio-p-2;
+}
+.col-100 {
+  width: 100%;
+}
+
+.cell {
+  @include image-container;
+  width: 100%;
+}
+.cell-1, .cell-38 {
+  height: $golden-ratio-p-1;
+}
+.cell-2, .cell-62 {
+  height: $golden-ratio-p-2;
+}
+.cell-3, .cell-100 {
+  height: 100%;
+}
+.cell-50 {
+  height: 50%;
+}
+
+$portfolio-width: $screen-wide;
+@media (min-width: $portfolio-width) {
+  .row {
+    margin: 0 auto;
+    width: $portfolio-width;
+  }
+  .row-38 {
+    height: $portfolio-width - $portfolio-width / $golden-ratio;
+  }
+  .row-62 {
+    height: $portfolio-width / $golden-ratio;
+  }
+  .row-100 {
+    height: $portfolio-width;
   }
 }
