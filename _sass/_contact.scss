@@ -1,6 +1,7 @@
 .contact {
 
   margin: 32px;
+  height: $golden-ratio-vw-2;
 
   @media(min-width: 768px) {
     background-image: url(images/contact.jpg);
@@ -11,7 +12,7 @@
 
     h1 {
       margin-top: 0;
-      padding-top: 32px;
+      padding-top: 128px;
     }
     .contact-info {
       margin-left: -34vw;
