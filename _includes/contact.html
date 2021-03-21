@@ -18,22 +18,6 @@
         </p>
     </div>
 
-    <form class="contact-info" action="{{ site.email_post_url }}" method="post">
-        <input type="hidden" name="redirect_to" value="{{ site.url }}/index.html#thanks" />
-
-        <label for="f_name">Naam<span title="verplicht veld" style="color: brown">*</span>:</label>
-        <input id="f_name" type="text" name="name" required="" placeholder="Je naam" />
-        <label for="f_email">E-mail<span title="verplicht veld" style="color: brown">*</span>:</label>
-        <input id="f_email" type="email" name="email" required="" placeholder="Je e-mail adres" />
-        <label for="f_phone">Telefoonnummer:</label>
-        <input id="f_phone" type="text" name="phone" placeholder="Je telefoonnummer" />
-        <label for="f_date">Trouwdatum:</label>
-        <input id="f_date" type="text" name="date" placeholder="Je trouwdatum" />
-        <label for="f_message">Bericht:</label>
-        <textarea id="f_message" name="message" rows="12" required="" placeholder="Type je bericht hier"></textarea>
-
-        <button class="button" type="submit">Verzend</button>
-    </form>
 </section>
 
 <div class="contact-thanks" id="thanks">
