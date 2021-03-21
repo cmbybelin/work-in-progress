@@ -1,0 +1,119 @@
+$header-padding-top: 16px;
+$header-padding-bottom: 12px;
+$header-logo-height: 48px;
+$header-height: $header-padding-top + $header-padding-bottom + $header-logo-height;
+
+header {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: white;
+  padding: $header-padding-top 16px $header-padding-bottom;
+  a {
+    padding: 0;
+  }
+
+  .logo {
+    display: block;
+    font-family: $serif;
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    line-height: $header-logo-height;
+  }
+  .mobile-menu {
+    float: right;
+    font-size: $mobile-menu-font-size;
+    font-family: $serif;
+    @include no-user-select;
+  }
+  nav {
+    ul {
+      clear: both;
+      list-style: none;
+      text-align: center;
+      margin: 1.2em 0 0;
+      padding: 0;
+    }
+    a {
+      font-size: 120%;
+    }
+  }
+}
+
+nav.desktop {
+  display: none;
+}
+
+@media (min-width: $screen-wide - 90px) {
+  header {
+    .mobile-menu {
+      display: none;
+    }
+    nav.desktop {
+      display: block;
+    }
+    ul {
+      float: right;
+    }
+    li {
+      display: inline-block;
+      text-align: right;
+      padding-right: 36px;
+      font-size: 90%;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    a {
+      padding: 0;
+    }
+  }
+}
+@media (min-width: $screen-wide) {
+  header {
+    padding-left: 4em;
+    padding-right: 4em;
+    .logo {
+      padding-left: 0;
+    }
+  }
+}
+@media (min-width: 1100px) {
+  header {
+    li {
+      padding-right: 52px;
+    }
+  }
+}
+
+
+/** Mobile show/hide effect */
+nav.mobile {
+  @include full-screen;
+  background-color: $cloud-grey;
+  visibility: hidden;
+  opacity: 0;
+  padding: 28px 20px;
+  perspective: 1200px;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+  ul {
+    opacity: 0.4;
+    line-height: 3em;
+    transform: translateY(-25%) rotateX(35deg);
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  &.visible {
+    opacity: 0.96;
+    visibility: visible;
+    transition: opacity 0.5s ease;
+  }
+  &.visible ul {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+  &.hidden ul {
+    transform: translateY(25%) rotateX(-35deg);
+  }
+}

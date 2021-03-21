@@ -13,8 +13,10 @@ footer {
     vertical-align: middle;
 }
 
+@import "mixins";
 @import "typography";
 @import "splash";
+@import "header";
 @import "about";
 @import "collage";
 @import "contact";

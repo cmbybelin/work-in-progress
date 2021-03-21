@@ -1,16 +1,15 @@
 .collage {
-  background-image: url(images/kusinauto.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  text-align: center;
-  height: 100vh;
-  max-height: 667px;
-  color: #f3f1ee;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center top;
+  // text-align: center;
+  // height: 100vh;
+  // max-height: 667px;
+  // color: #f3f1ee;
 
-  @media(min-width: 1024px) {
-    max-height: 66vw;
-  }
+  // @media(min-width: 1024px) {
+  //   max-height: 66vw;
+  // }
 }
 
 @mixin image-container {
@@ -19,7 +18,7 @@
   background-size: cover;
   background-clip: content-box;
   background-position-x: 50%;
-  padding: 4px;
+  // padding: 4px;
   cursor: pointer;
 }
 
@@ -75,16 +74,16 @@
 $portfolio-width: $screen-wide;
 @media (min-width: $portfolio-width) {
   .row {
-    margin: 0 auto;
-    width: $portfolio-width;
+    // margin: 0 auto;
+    // width: $portfolio-width;
   }
   .row-38 {
-    height: $portfolio-width - $portfolio-width / $golden-ratio;
+    // height: $portfolio-width - $portfolio-width / $golden-ratio;
   }
   .row-62 {
-    height: $portfolio-width / $golden-ratio;
+    // height: $portfolio-width / $golden-ratio;
   }
   .row-100 {
-    height: $portfolio-width;
+    // height: $portfolio-width;
   }
 }
