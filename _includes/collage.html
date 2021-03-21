@@ -17,8 +17,7 @@
 {% assign current = 0 %}
 
 {% for row in site.collage %}
-  {% if row.items <= left %}{% unless page.skip_list contains forloop.index %}
-    <div class="row row-{{ row.height }}"
+  {% if row.items <= left %}{% unless include.skip_list contains forloop.index %}{% if current > 0%}>{% endif %}<div class="row row-{{ row.height }}"
     {% for col in row.cols %}
       ><div class="col col-{{ col.width }}"
       {% if col.height %}
@@ -29,14 +28,12 @@
       {% for height in col_height %}
         {% assign base_path = index_list[current] %}
         {% assign w = base_path | strip | split: ':' %}
-        ><div class="cell cell-{{ height | strip }} open-caroussel" style="background-image: url({{ w[1] }})" data-imgid="{{ w[0] }}"></div
+        ><div class="cell cell-{{ height | strip }} {% if include.interactive %}open-caroussel{% endif %}" style="background-image: url({{ w[1] }})" data-imgid="{{ w[0] }}"></div
         {% assign left = left | minus: 1 %}
         {% assign current = current | plus: 1 %}
       {% endfor %}
       ></div
     {% endfor %}
-    ></div>
-  {% endunless %}{% endif %}
+    ></div{% endunless %}{% endif %}
 {% endfor %}
-
-</section>
+></section>

@@ -19,9 +19,11 @@
   background-clip: content-box;
   background-position-x: 50%;
   // padding: 4px;
-  cursor: pointer;
 }
 
+.open-caroussel {
+  cursor: pointer;
+}
 .row {
   box-sizing: border-box;
   width: 100%;
@@ -74,16 +76,8 @@
 $portfolio-width: $screen-wide;
 @media (min-width: $portfolio-width) {
   .row {
-    // margin: 0 auto;
-    // width: $portfolio-width;
-  }
-  .row-38 {
-    // height: $portfolio-width - $portfolio-width / $golden-ratio;
-  }
-  .row-62 {
-    // height: $portfolio-width / $golden-ratio;
-  }
-  .row-100 {
-    // height: $portfolio-width;
+    display: inline-block;
+    width: $third-ratio-p;
+    height: $golden-ratio-vw-1;
   }
 }
