@@ -3,6 +3,10 @@ $header-padding-bottom: 12px;
 $header-logo-height: 48px;
 $header-height: $header-padding-top + $header-padding-bottom + $header-logo-height;
 
+body {
+  margin-top: $header-height;
+}
+
 header {
   position: fixed;
   z-index: 1;

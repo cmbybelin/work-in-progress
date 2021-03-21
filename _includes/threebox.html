@@ -1,0 +1,11 @@
+<section class="threebox">
+
+  {% for item in include.items %}
+  <div class="threebox-item">
+    <p>{{ item.title }}</p>
+
+    <div class="threebox-image" style="background-image: url({{ item.image }})"></div>
+  </div>
+  {% endfor %}
+
+</section>
