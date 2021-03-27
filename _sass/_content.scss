@@ -2,3 +2,24 @@
   max-width: $screen-wide;
   padding: 32px;
 }
+
+blockquote {
+  text-align: center;
+  font-size: 1.2rem;
+
+  &::before, &::after {
+    display: block;
+    font-family: "Cinzel";
+    font-size: 12rem;
+    opacity: 0.25;
+    line-height: 0;
+  }
+  &::before {
+    content: "\201C";
+    margin: 9rem auto -3rem;
+  }
+  &::after {
+    content: "\201D";
+    margin: 8rem auto -2rem;
+  }
+}

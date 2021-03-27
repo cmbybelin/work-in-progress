@@ -7,7 +7,7 @@
 
 Een uniek verhaal vastleggen. Jullie verhaal. Het zou me een eer zijn dat te mogen doen.
 
-<blockquote>Puur. Gevoelig.Romantisch. With a touch of fashion.</blockquote>
+> Puur. Gevoelig.Romantisch. With a touch of fashion.
 
 Als fine art fotograaf hou ik van het gebruik van natuurlijk licht.Ik heb oog voor details en wordt super enthousiast van eenprachtige omgeving en styling.
 
