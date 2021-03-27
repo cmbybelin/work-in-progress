@@ -17,4 +17,4 @@ Voor jullie onvergetelijke en intense momenten vastleggen is mijn doel.
 
 {% include about.html %}
 {% include threebox.html items=site.data.offerings %}
-{% include collage.html folder="/collage_bridal" %}
+{% include collage.html folder="/collage_bridal" ribbon=true %}
