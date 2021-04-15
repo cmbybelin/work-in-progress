@@ -1,7 +1,7 @@
 ---
 ---
 
-{% include splash.html %}
+{% include splash.html image="/images/splash.jpg" %}
 
 <section class="content" markdown="1">
 
@@ -16,4 +16,5 @@ Voor jullie onvergetelijke en intense momenten vastleggen is mijn doel.
 </section>
 
 {% include about.html %}
+
 {% include threebox.html items=site.data.offerings %}

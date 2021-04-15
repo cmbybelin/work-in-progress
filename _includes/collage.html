@@ -16,7 +16,7 @@
 {% assign left = index_list | size %}
 {% assign current = 0 %}
 
-{% for row in site.collage %}
+{% for row in include.pattern %}
   {% if row.items <= left %}{% unless include.skip_list contains forloop.index %}
     {% unless include.ribbon %}<div class="row row-{{ row.height }}">{% endunless %}
     {% for col in row.cols %}
