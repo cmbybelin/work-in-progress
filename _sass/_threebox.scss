@@ -1,0 +1,27 @@
+
+.threebox {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.threebox-item {
+  width: 100%;
+  text-align: center;
+}
+
+.threebox-image {
+  display: inline-block;
+  width: 82%;
+  background-color: white;
+  padding-top:138%;
+  background-size: cover;
+  background-position-x: 50%;
+}
+
+@media (min-width: $screen-medium) {
+  .threebox {
+    flex-direction: row;
+  }
+}

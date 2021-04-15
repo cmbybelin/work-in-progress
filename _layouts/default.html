@@ -20,10 +20,18 @@
 
 <body>
 
+    {% include header.html %}
+
     {{ content }}
 
     <footer>
-        Copyright &copy; 2021 Belinda Terrisse
+        <div class="socialmedia">
+            <a href="https://www.facebook.com/belinda.terrisse" class="facebook" title="Facebook"><i class="fa fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/belindaterrisse" class="instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.pinterest.com/belindaterrisse" class="pinterest" title="Pinterest"><i class="fa fa-pinterest-p"></i></a>
+            <a href="mailto:belindaterrisse@gmail.com" class="email" title="e-mail"><i class="fa fa-envelope-o"></i></a>
+        </div>
+        <div class="copyright">Copyright &copy; {{ site.time | date: '%Y' }} Belinda Terrisse</div>
     </footer>
 </body>
 

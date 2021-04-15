@@ -3,16 +3,26 @@ $header-padding-bottom: 12px;
 $header-logo-height: 48px;
 $header-height: $header-padding-top + $header-padding-bottom + $header-logo-height;
 
+body {
+  margin-top: $header-height;
+}
+
 header {
   position: fixed;
   z-index: 1;
   left: 0;
   right: 0;
   top: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
   background-color: white;
   padding: $header-padding-top 16px $header-padding-bottom;
   a {
     padding: 0;
+    text-decoration: none;
   }
 
   .logo {
@@ -23,17 +33,17 @@ header {
     line-height: $header-logo-height;
   }
   .mobile-menu {
-    float: right;
     font-size: $mobile-menu-font-size;
     font-family: $serif;
+    line-height: $header-logo-height;
+    text-align: right;
     @include no-user-select;
   }
   nav {
     ul {
-      clear: both;
       list-style: none;
       text-align: center;
-      margin: 1.2em 0 0;
+      margin: 0;
       padding: 0;
     }
     a {
@@ -44,6 +54,7 @@ header {
 
 nav.desktop {
   display: none;
+  line-height: $header-logo-height;
 }
 
 @media (min-width: $screen-wide - 90px) {
@@ -53,9 +64,6 @@ nav.desktop {
     }
     nav.desktop {
       display: block;
-    }
-    ul {
-      float: right;
     }
     li {
       display: inline-block;
