@@ -2,7 +2,7 @@
 title: Trouwen
 ---
 
-{% include splash.html image="/images/splash.jpg" %}
+{% include splash.html image="images/splash.jpg" %}
 
 <section class="content" markdown="1">
 
@@ -13,7 +13,7 @@ nooit te vergeten.
 
 </section>
 
-{% include collage.html folder="/collage_bridal" ribbon=true pattern=site.data.ribbon %}
+{% include collage.html folder="collage_bridal" ribbon=true pattern=site.data.ribbon %}
 
 <section class="content" markdown="1">
 
@@ -39,4 +39,3 @@ Ik ga graag mee naar jullie droombestemming om onvergetelijk momenten vast te le
 Prijs op aanvraag.
 
 </section>
-
