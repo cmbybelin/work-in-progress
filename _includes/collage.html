@@ -6,7 +6,7 @@
   {% for file in site.static_files %}
     {% if file.path contains path_prefix %}
       {% unless file.path contains '/thumbs/' %}
-        {% if first %}{% assign first = false %}{% else %};{% endif %}{{ file.basename }}:{{ file.path | replace:' ','%20' }}
+        {% if first %}{% assign first = false %}{% else %};{% endif %}{{ file.basename }}:{{ file.path | slice: 1, 999 | replace:' ','%20' }}
       {% endunless %}
     {% endif %}
   {% endfor %}
