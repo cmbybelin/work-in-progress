@@ -9,7 +9,7 @@ blockquote {
 
   &::before, &::after {
     display: block;
-    font-family: "Cinzel";
+    font-family: $serif;
     font-size: 12rem;
     opacity: 0.25;
     line-height: 0;
