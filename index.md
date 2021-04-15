@@ -1,7 +1,7 @@
 ---
 ---
 
-{% include splash.html image="/images/splash.jpg" %}
+{% include splash.html image="images/splash.jpg" %}
 
 <section class="content" markdown="1">
 
